@@ -1,0 +1,5 @@
+Idea:
+Make a conquest game. A randomly generated map where you are a country and you have to take over the map.
+You can train soldiers and other artillery using money that you generate by taking over countries.
+Also by taxes.
+All missions are timed so that you have to take over the entire map with the given timer
