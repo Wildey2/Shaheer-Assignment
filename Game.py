@@ -11,8 +11,33 @@ class App():
 
         root = Tk()
 
-        displayBox = Text(root)
-        displayBox.grid(row=0,column=0)
+        self.displayBox = Text(root)
+        self.displayBox.grid(row=0,column=0)
+        self.displayBox.config(state="disable")
+
+        ebox = Entry(root)
+        ebox.grid(row=0,column=1)
+
+        def run(*args):
+
+
+            self.displayBox.config(state="normal")
+
+            self.displayBox.insert(END,"Dildo Baggins\n\n")
+
+            self.displayBox.config(state="disable")
+
+
+
+
+        root.bind("<k>",run)
+
+
+
+
+
+
+
 
 
 
