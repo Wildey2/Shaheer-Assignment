@@ -9,13 +9,13 @@ class App():
     def __init__(self):
 
 
-        root = Tk()
+        self.root = Tk()
 
-        self.displayBox = Text(root)
+        self.displayBox = Text(self.root)
         self.displayBox.grid(row=0,column=0)
         self.displayBox.config(state="disable")
 
-        ebox = Entry(root)
+        ebox = Entry(self.root)
         ebox.grid(row=0,column=1)
 
         def run(*args):
@@ -30,7 +30,7 @@ class App():
 
 
 
-        root.bind("<k>",run)
+        self.root.bind("<k>",run)
 
 
 
@@ -44,6 +44,6 @@ class App():
 
 
 
-        root.mainloop()
+        self.root.mainloop()
 
 app = App()
