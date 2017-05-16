@@ -9,7 +9,7 @@ class App:
     def __init__(self):
 
         self.root = Tk()
-
+        self.root.title("World Conquest Game")
         self.gameC = tk.Canvas(self.root, width=2000, height=600)
         self.gameC.grid(column=1, row=0)
         self.gameC.config(bg="black")
@@ -19,7 +19,6 @@ class App:
 
         self.displayBox = Text(self.root)
         self.displayBox.grid(row=0,column=0)
-        self.displayBox.insert(END,">>> World Conquest Game")
         self.displayBox.config(state="disable")
 
         self.ebox = Entry(self.root)
