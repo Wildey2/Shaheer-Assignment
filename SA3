@@ -1,0 +1,570 @@
+
+#*****************************************************************************************************************************
+#FUNCTIONS
+
+#Every function should have a header to describe what it does and describe the requirements of
+#the pre-conditions (parameters)
+#Every function should be well commented. These comments can be brief but descriptive
+
+
+#***********************************************************************************************************************
+#IMPORT STATEMENTS
+
+import datetime
+import math
+import random
+import SA3
+
+
+
+
+
+
+
+
+#***********************************************************************************************************************
+#FUNCTIONS 1-4 FROM TEST
+
+
+#Function 1
+#Descriptio1n: checks the second first and second last element of a list to see if it equals n
+#pre-condition: n is the same type of elements as the list
+#return type: Boolean
+
+def secondfirstlastcheck (list, n):
+    if len(list) < 2: #If the list is too short for there to be second first and last
+        return False
+    elif (list[1] == n) and (list[len(list)-2] == n): #If the second first and last are equal to n
+        return True
+    else:     #if it doesn't
+        return False
+
+
+#***********************************************************************************************************************
+#Function 2
+#Description: This function adds then subracts alternating elements of a list
+#pre-conditions: list can contain only integers
+#return type: integer
+
+def modifiedSumB(list):
+    sum = list[0]
+    for i in range(1, len(list), 1):  # checks the whole list
+        if i % 2 == 0:  # if the number is even, it is subtracting
+            sum = sum + list[i]
+        elif i % 2 != 0:  # if the uneven, it is adding
+                sum = sum - list[i]
+    return sum
+
+
+#***********************************************************************************************************************
+#Function 3
+#Description: returns string with all the middle letters of the strings in the list
+#Pre-condition: list of odd length strings
+#return type: string
+
+def midLetterA (list):
+    new = ""
+    letter = ""
+    for i in range (0, len(list), 1): #looks through the list
+        letter = list [i]
+        letter = letter[len(letter)//2] #takes the element of the list and finds the middle character
+        new = new  + letter #puts the middle character into a new variable
+    return new
+
+
+#***********************************************************************************************************************
+#Function 4
+#Description: Take a list of values and creates a new list with all the integers immediately before the n value.
+#Pre-condition: a list of integers and the n is integer
+#return type: list
+
+def createListA (list, n):
+    new = [] #the new list
+    for i in range (0, len(list), 1): #for loop to look through the lis
+        if list [i] == n  and i > 0: #If the n value is spotted and there is an element before it
+            if list [i-1] != n: #if the number before the n value isn't the n value as well
+                new.append(list [i-1]) #it is appended
+    return new
+
+
+
+
+
+
+
+
+
+
+#***********************************************************************************************************************
+#Functions 5-9 are from the "More Summative tools Page
+
+
+#Function 5
+#Description: This will take an integer and return all the factors of the integer as a list
+#Pre-Condition: The value entered needs to be an integer
+#return type: list
+
+def generateFactors (n):
+
+    factors = [] #the list for the factors
+    for i in range (1, n+1, 1): #for loop for the number
+        if n % i == 0: #if factor is found, it is added to the list of factors
+            factors.append(i)
+    return factors
+
+#***********************************************************************************************************************
+#Function 6
+#Description: finds the common factors and returns it in a list
+#Pre-Conditions: num1 and num2 are integers
+#return type: List
+
+def commonFactors (num1, num2):
+    common = [] #a list to hold the common factors
+    for i in range (1, num1+1, 1): #loop to look at every number in between zero and num1
+        if num1 % i == 0: #if num1 and num2 are divisible by the number, it is added as a common factor
+            if num2 % i == 0:
+                common.append (i)
+
+
+    return common
+
+#***********************************************************************************************************************
+#Function 7
+#Description: Checks the number given to see whether it is prime
+#Pre-Condition: int must a an integer
+#return type: Boolean
+
+def isPrime (int):
+    ifprime = 0 #number which will hold divisables
+    for i in range(1, int+1, 1):  # a for loop to go through the entire int given and plus one to make it exclusive
+        if int % i == 0:  #If it is a factor
+            ifprime = ifprime + 1 #it is added to the amount of factors
+
+    if ifprime <= 2: #There should be 2 factors in a prime, 1 and itself. So if there is, then it returns True
+        return True
+    else:  #IF there is more than two factors, it returns False because it isn't prime
+        return False
+
+
+#***********************************************************************************************************************
+#Function 8
+#description: This takes the coordinates of two different circles as well as their radiuses and then finds whether or not they interesect, telling you true or false
+#pre-condition: x1 and y1 are coordinates for the center of the circle with the r1 radius, x2 and y2 are coordinates for the center of the circle with the r2 radius
+#return type: Boolean
+
+def isIntersecting(x1, y1, r1, x2, y2, r2):
+
+    distance = math.sqrt(((x2 - x1) ^ 2) + ((y2 - y1) ^ 2))  # formula for the distance between two points
+
+    if r1 + r2 >= distance:  # If the radiuses added up are greater or equal to the distance, the are intersecting
+        return True
+    else:
+        return False
+
+#***********************************************************************************************************************
+#Function 9
+#Description: This takes a number and adds the digits together and returns them as an integer
+#Pre-Condition: the num is an integer
+#return type: Integer
+
+def addDigits(num):
+    length = str(num)  # This creates a string variable of the number so i can be added
+    sum = 0
+    num1 = 0
+    for i in range(0, len(length), 1):  # looks through the string variable
+        num1 = length[i]
+        num1 = int(num1)  # turns the string variable back into an integer and adds it to sum
+        sum = sum + num1
+
+    return sum
+
+
+
+
+
+
+
+
+
+
+
+#***********************************************************************************************************************
+#Functions 10-13 are Functions of the Day
+
+
+#Function 10
+#Description: creates a list of integers between the given values given
+#Pre-conditions: n is how many integers, low is the minimum value and high is the maximum value. Low needs to be smaller than higher
+#return type: List
+
+def generateList (n, low, high):
+
+    integers = []  #list created to hold variables
+    num = 0 #random variable created
+    for i in range (0, n, 1): #loop created at the length of n
+        num = random.randint (low, high) #random variable created
+        integers.append(num) #random variable added to this
+    return integers
+
+#***********************************************************************************************************************
+#Function 11
+#Description: takes a word and prints it backwards without the reverse function
+#Pre-Conditions: word is a string
+#return type: string
+
+def reverseWord (word):
+    reverse = "" #the reverse string
+    word = word.upper() #prevents logic error
+    for i in range (len(word), 0, -1): #loop to go through the string backwards and add it to the reverse
+        reverse = reverse + word[i-1]
+    return reverse
+
+#***********************************************************************************************************************
+#Function 12
+#Description: This function takes a list given and then outputs a new string with the old string but reversed.
+#Pre-Conditions: list is a list
+#return type: list
+
+def reverseListA (list):
+    reverse = []  #the reversed list is created
+    for i in range (len(list), 0, -1): #for loop goes through the list backward
+        reverse.append(list[i-1]) #adds the elements backwards into the reverse list
+    return reverse
+
+#*****************************************************************************************************************************
+#Function 13
+#Description: this function will determine and return the maximum of two numbers
+#Pre-conditions: a and b can be integers or floats
+#return type: integer
+
+def findMax(a, b):
+    if a > b:    #this checks if a is bigger than be. if it comes out true, then it will return a
+        return a
+    return b   #this will return b if a was not bigger than it
+
+
+
+
+
+
+
+
+
+
+#***********************************************************************************************************************
+#Functions 14-17 are required functions
+
+
+#Function 14
+#Description: returns the largest number in the list as an integer
+#Pre-Condition: a list is given and consists completely of integers
+#return type: integer
+
+def maxList (num):
+    if len(num) == 0: #to prevent error if the length of the list is zero
+        return None
+    max = num[0] #sets the max variable
+    for i in range (0, len(num), 1): #for loop to look through the list
+        if num[i] > max: #if the number is bigger than max, it replaces the max
+            max = num[i]
+    return max
+
+#***********************************************************************************************************************
+#Function 15
+#Description: returns the smallest number in the list as in integer
+#Pre-Condition: a list is given and consists competely of integers
+#return type: integer
+
+def minList (num):
+    if len(num) == 0: #To prevent error if the list has no minimum
+        return None
+
+    min = num[0] #variable to find minimum
+    for i in range (0, len(num), 1): #look to look through list
+        if num[i] < min: #if the element at i is smaller than the minimum, than it is the smallest element and is declared minimum
+            min = num[i]
+    return min
+
+#***********************************************************************************************************************
+#Function 16
+#Description: this takes a number and finds the immediate next prime number
+#Pre-Condition: num needs to be an integer
+#return type: integer
+
+def nextPrime (num):
+    prime = 0 #prime numbers found
+    ifprime = None
+    x = num #makes the counter equal to the number inputed
+    while prime == 0: #while no prime numbers are found, the loop keeps going
+        x = x + 1  #the counter increases
+        ifprime = isPrime (x) #uses the isprime function to determine if x is a prime or not
+        if ifprime is True: #if the x is prime, it is declared the prime number and returns it
+            prime = x  #this ends the function and allows it to return it
+            return prime
+
+#***********************************************************************************************************************
+#Function 17
+#Description: takes a list and returns a integer value which is the amount of elements in that list
+#Pre-Condition: list has to be a list
+#return type: integer
+
+def countList (list):
+    x = 0
+    count = 0
+    while len(list) > x:  #Shows that in many instances, both for and while loop can be used.
+        count = count + 1  #adds to the count every run through
+        x = x + 1  #increases the value every time, essentially as a time or amount limit
+
+    return count
+
+
+
+
+
+
+
+
+
+
+#***********************************************************************************************************************
+#Functions 18-21 are unique ideas
+
+
+#Function 18
+#Description: this function takes two strings and returns the number of times that c is contained within str.
+#Pre-Conditions: str is a string of any length. c is string length of 1
+#return type: integer
+
+def countCharacter (str, c):
+    ctr = 0
+    for i in range (0, len(str), 1): #looks through the string
+        if str[i] == c: #if a c is found it is added to the counter
+            ctr = ctr + 1
+    return ctr
+
+#***********************************************************************************************************************
+#Function 19
+#Description: this function standardizes inputs from the user into no caps and no spaces. this is to eliminate any possible
+#error in varying inputs.
+#pre-condition: the input from the user
+#return type: string
+
+def standardize(input):
+    standard = "" #standard value that will be given back
+    input = SA3.lower(input)  #this lowers all the letters lowercase
+    for i in range (0, len(input), 1):
+        if input[i] != " ":
+            standard = standard + input[i] #gets rid of all the spaces between the values.
+    return standard
+
+#***********************************************************************************************************************
+#Function 20
+#Description: find if a number is a palindrome (if it is the same backwards)
+#Pre-Conditions: word needs to a string
+#return type: Boolean
+
+def isPalindrome (word):
+
+    word = word.upper() #prevents logic error
+    for i in range (0, len(word), 1): #loop to go through the word
+        if word [i] != word[len(word)-1-i]: #if the first letter is not equal to the last letter, than moves into the string
+            return False #returns false if those are not the same
+    return True
+
+#***********************************************************************************************************************
+#Function 21
+#Description: This takes any variable and inputs it into an orderly fashion into a file, with a divider and different line every time
+#Pre-Condition: var is anytype of variable. There will be nothing returned
+#return type: None, file is created or added to
+
+def infoStorage (var):
+    var = str(var)
+    storage = open ("infoStorage", "a") #this opens the file and enters the text, but this functions puts these codes of line into one
+    storage.write(var+":")
+
+#***********************************************************************************************************************
+#Description: Inorder to update the statistics on a list, i will be using this function
+#Pre-Condition: the list variable needs to be a list with the first number being money and the second being soldiers
+
+def statsUpdate (list):
+    list = SA3.converter (list, "str")
+    storage = open ("Statistics", "w")
+    for i in range (0, len(list), 1):
+        storage.write (list[i] + ":")
+
+#***********************************************************************************************************************
+#Description: This takes a list and makes all the variables in that list a declared type
+#Pre-Condition: the values in the list can not cause error if converted to that type (letter to int). type needs to be an string, and must say either int or str.
+#Turn this into while loop for function
+def converter (list, type):
+    for i in range (0, len(list), 1):
+        if type == "int":
+            list [i] = int(list[i])
+        else:
+            list [i] = str(list[i])
+    return list
+
+#***********************************************************************************************************************
+#**ADVANCED LOGIC SECTION**
+#Functions 22-27 are all advanced logic
+
+
+#Function 22
+#Description:This will take and check for the entire string for 4 main swear words
+#Pre-Conditions: the let is a string
+#return type: String
+
+def cleanLanguage (let):
+    swear1 = "bitch"
+    swear2 = "fuck"
+    swear3 = "shit"
+    swear4 = "dick"
+    initial = "bfsd" #in order to identify a suspect
+    let = let.lower()  #to avoid characters being avoided if they are capitalized
+    let = str(let) #prevent type errors
+    list = []
+    clear = ""
+    for x in range  (0, len(let), 1): #Turns string into list
+        list.append(let[x])
+
+
+    for i in range (0, len(let), 1):
+        if let [i] in initial: #checks if there is trace of swear word, if there is, identifies which swear word
+            if list [i] == "b":   #the bitch swear word
+                suspect = swear1
+            elif list [i] == "f": #the fuck swear word
+                suspect = swear2
+            elif list [i] == "s": #the shit swear word
+                suspect = swear3
+            else:
+                suspect = swear4 #the dick swear word
+            if let[i:len(suspect)+i] == suspect:  #Checks to see if the word in the string is the suspected swear word
+                for j in range (i, len(suspect)+i,1): #goes through from the area the word was found to the length of the suspect
+                    list[j] = "*"  #replaces swear word letters with "*"
+
+    for y in range (0, len(list), 1): #turns string back into integer
+        clear = clear + list [y]
+
+    return clear
+
+#***********************************************************************************************************************
+#Function 23
+#description: This will take anything the user says, and puts it into a file along with the date and time it was entered, creating a memo
+#pre-condition: the pre-condition can be anything
+#return type: None, only a new file is created or updated with the input
+
+def memo (var):
+    #turns datetime into a useable function
+    now = datetime.datetime.now()
+
+    #retrives current date, month, time year, and time including (hour, minute, and second) and turns it into a string to be used in a statement
+    day = str(now.day)
+    month = str(now.month)
+    year = str(now.year)
+    hour = str(now.hour)
+    minute = str(now.minute)
+    second = str(now.second)
+    var = str(var)  #turns var into string so no errors
+
+    memo = open ("memo", "a") #opens list
+    memo.write (var+ ">") #adds variable into list
+    memo.write (" " + day + "," + month + "," + year + ". " + hour + ":" + minute + ":" + second + "\n") #adds all the date and time into the list
+
+#***********************************************************************************************************************
+#Function 24
+#Description: this will take a file and seperate the items using the divider into a list
+#Pre-Conditions: var has to have the divider variable as some sort of special character used to divide the variable.
+#return type: List with strings
+
+def fileToList (fileName, divider):
+    file = open (fileName, "r") #opens the file which was named and given by the user
+    content = file.read()
+    start = 0
+    list = []
+    for i in range(0, len(content), 1):
+        if content[i] == divider: #if the divider is found the start value to where the divider is put into a list
+            list.append(content[start: i])
+            start = i + 1 #the start this way to assure that the divider is not added in
+    list = SA3.converter(list, "str")
+    return list
+
+
+
+#***********************************************************************************************************************
+#Function 25
+#Description: return the sum of the numbers in a list, except ignoring sections of large numbers starting with 6 and extending to the next 7,
+#(every 6 will be followed by at least one 7). Return 0 for no numbers.
+#Pre-Condition: nums is a list of integers
+#return type: integer
+
+
+def sum67(nums):
+    for i in range(0, len(nums), 1):   #a loop to go through the list
+        if nums[i] == 6:  #If a 6 is seen, it is made a zero
+            nums[i] = 0
+            for w in range(i, len(nums), 1): #loop to check from the six onward
+                if nums[w] != 7: #turns every number inbetween the seven to zero
+                    nums[w] = 0
+                elif nums[w] == 7: #turns the seven to zero then breaks this loop and starts the overall loop
+                    nums[w] = 0
+                    break
+    return sum(nums)
+
+
+#***********************************************************************************************************************
+#Function 26:
+#Description: This will take a string and capitalize all the letters
+#Pre-Condition: letter must be a string
+#Return Type: string
+
+def upper(letter):
+    new = ""  # Creates New Value
+    upper = fileToList("alphabetCAP", ".")  # opens a file to list of capitalized alphabet
+    lower = fileToList("alphabetLOW",".")  # opens a file to list of lower case alphabet with letters in the same position
+    for i in range(0, len(letter), 1):  # Looks through the letter
+        if letter[i] in lower:  # if the letter is in the lower case
+            for w in range(0, len(lower), 1):  # a loop is done to find where that letter is in the lower file
+                if letter[i] == lower[w]:  # once the letter is found, the same location is used to upper case it
+                    new = new + upper[w]
+
+        else:  # if it is not in the lower case file, it is added to the new word
+            new = new + letter[i]
+    return new
+
+
+#***********************************************************************************************************************
+#Function 27:
+#Description: This will take a string and lowercase all the letters
+#Pre-Condition: letter must be a string
+#Return Type: string
+
+def lower(letter):
+    new = ""  # Creates New Value
+    letter = str(letter)
+    upper = fileToList("alphabetCAP", ".")  # opens a file to list of capitalized alphabet
+    lower = fileToList("alphabetLOW",".")  # opens a file to list of lower case alphabet with letters in the same position
+    for i in range(0, len(letter), 1):  # Looks through the letter
+        if letter[i] in upper:  # if the letter is in the upper case
+            for w in range(0, len(upper), 1):  # a loop is done to find where that letter is in the upper file
+                if letter[i] == upper[w]:  # once the letter is found, the same location is used to lower case it
+                    new = new + lower[w]
+
+        else:  # if it is not in the upper case file, it is added to the new word
+            new = new + letter[i]
+    return new
+
+
+
+
+
+
+def question (num, value):
+
+    #decision = standardize (value)
+    decision = value
+    if num is 3 and decision != "option1" and decision != "option2" and decision != "option3":
+        return False
+    elif num == 2 and decision != "option1" and decision != "option2":
+        return False
+    else:
+        return True
