@@ -1,22 +1,16 @@
-
-What do you choose? Write your decision (Option #) into the white box below then press '~';
-Hello President, you have been promoted to President of the Republic of Raedland (red). You own half of this island, the nation is the Greddan Empire (green). This is an extremely hostile nation always competting with yours, it is both of your secret goals to unite the island under their own flag. You need to unite this island under Rennish Flag (our flag). You must lead this nation and make decision best for our nation.;
-You will lose if lose to the Greddese Forces in any way.;
-You will be presented Options 1 or 2. Then you can press the corresponding button to take that path.;
-Press "k" to see your statistics (soldiers and money). Press ">" to progress to the next decision. failure to do so will only be detrimental to your experience.;
 President, your first choice is internal policy. Would you like to focus into the economy (Option 1)? This is going to:;
 1. Increase Economic Power (+3000);
 2. Increase Money (+2000);
 Or would you like to invest into the military (Option 2)? This is going to:;
 1. Military Strength (+3000);
 2. Decrease Money (-1000);
-President, we have an opportunity presented to us. We can attack the Greddan Empire. We can attack their Northern Province (Province 3):;
+President, we have an opportunity presented to us. We can attack the Greddan Empire. We can attack their Northern Province (Option 1):;
 1: Easier, the garrison there is smaller;
 2: Less casualties ;
 3: If we lose this invasion, we lose the game ;
 4: Recieve 4000 money in loot (+4000);
 5: Lose Economic Power in the attack (-1000);
-Or we can attack their Southern Capital Province (Province 4):;
+Or we can attack their Southern Capital Province (Option 2):;
 1: Much harder to take, suggested only if military improvement was previous decision;
 2: Larger loot, money (+5000);
 3: More Economic Power lost in the attack (-2000);
@@ -26,3 +20,19 @@ President, we have breathing room. We are presented with two options in this tim
 Or Further Strengthen our military incase of a counter attack by the enemy (Option 2). This option is going to:;
 1: Increase Military (+4000);
 2: Decrease Money (-2000);
+Press the "Next" Button below the map to continue to the next step.;
+President, there is a counterattack! The enemy has attempted to reclaim the province we captured from them. Our troops have fought bravely to defend the province. We successfully defended the captured province.;
+President, we must finish the Greddan Empire once and for all. They have caused too much pain. We have the chance to attack them now when they are weakened. But we are weakened as well.;
+Lets recruit larger armies and fill our ranks. With conscription as well the war fervour amongst the citizens, the price of increasing our military will not be expensive.;
+1 Money = 1 Military Power/Soldier;
+Enter a NUMBER of soldiers you would like to recruit, this number cannot exceed the amount of money you have.;
+President, we have been given the chance to finish off the Greddese Empire once and for all. They have regrouped and vigorously invested all their economic power into the military. We have two options.;
+We can blockade and embargo the Greddese into submission (Option 1). The effects:
+1: Weakened Economic Power;
+2: Less likely with smaller Economic Power;
+3: Forces will be lost in the blockade;
+Or we can attack the Greddese Forces and capture the province with strength (Option 2). The effects:;
+1: Large amounts of casualties;
+2: Suggested only with strong military power;
+3: Large amounts of loot from the province (economic power + 5000, money + 10000);
+President, unite this island for the generations to come.;
